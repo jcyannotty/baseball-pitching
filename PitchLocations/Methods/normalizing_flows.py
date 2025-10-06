@@ -39,6 +39,7 @@ class CouplingLayer(nn.Module):
         x2 = (y2 - t) * torch.exp(-s)
         log_det = -s.sum(dim=1)
         return torch.cat([x1, x2], dim=1), log_det
+    
 
 
 class NormalizingFlow(nn.Module):
@@ -50,7 +51,10 @@ class NormalizingFlow(nn.Module):
         )
 
     def forward(self, x):
-        """Maps x → z and accumulates log-det"""
+        """
+            Maps the target sample x (from NF, data) 
+            to z (MVN random variable) and accumulates log-det
+        """
         log_det_sum = torch.zeros(x.size(0), device=x.device)
         z = x
         for layer in reversed(self.layers):

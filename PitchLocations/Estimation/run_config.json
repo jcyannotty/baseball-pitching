@@ -1,0 +1,27 @@
+{
+    "start_date":"",
+    "end_date":"",
+    "pitchers":[
+        "Skenes, Paul",
+        "Strider, Spencer",
+        "Eovaldi, Nathan",
+        "Suarez, Robert"
+    ],
+    "pitch_types":["FF"],
+    "model_type":{
+        "normalizing_flows":true,
+        "gaussian_mixture":false
+    },
+    "model_properties":{
+        "normalizing_flows":{
+            "hidden_nodes":128,
+            "hidden_layers":2,
+            "max_iterations":1000,
+            "stop_criteria":0.001,
+            "learning_rate":0.001
+        },
+        "gaussian_mixture":{
+            "number_of_componenets":2
+        }
+    }
+}
